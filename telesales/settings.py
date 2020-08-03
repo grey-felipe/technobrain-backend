@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('TELESALES_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://technobrain-aeus-backend.herokuapp.com',]
+ALLOWED_HOSTS = ['technobrain-aeus-backend.herokuapp.com',]
 
 
 # Application definition
