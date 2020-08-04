@@ -13,7 +13,7 @@ from .serializers import (CallSerializer, UpdateDispositionSerializer,)
 from .renderers import CallRenderer, CallsRenderer
 from .models import Call
 from ..utils.emailer import send_email
-from ..utils.messenger import sendsms
+# from ..utils.messenger import sendsms
 
 # Create your views here.
 
