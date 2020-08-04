@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('TELESALES_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['technobrain-aeus-backend.herokuapp.com',]
+ALLOWED_HOSTS = ['127.0.0.1', 'technobrain-aeus-backend.herokuapp.com', ]
 
 
 # Application definition
@@ -62,7 +62,7 @@ ROOT_URLCONF = 'telesales.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'telesales/templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -148,3 +148,7 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': ('rest_framework.renderers.JSONRenderer',),
     'DEFAULT_AUTHENTICATION_CLASSES': ('telesales.apps.users.backends.JWTAuthentication',),
 }
+
+# EMAIL SENDER
+EMAIL_BACKEND = "djmail.backends.default.EmailBackend"
+DJMAIL_REAL_BACKEND = "django.core.mail.backends.console.EmailBackend"

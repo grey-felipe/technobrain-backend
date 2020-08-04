@@ -12,6 +12,7 @@ from rest_framework import status
 from .serializers import (CallSerializer, UpdateDispositionSerializer,)
 from .renderers import CallRenderer, CallsRenderer
 from .models import Call
+from ..utils.emailer import send_email
 
 # Create your views here.
 
@@ -23,6 +24,11 @@ class CreateCallView(CreateAPIView):
 
     def post(self, request, *args, **kwargs):
         request_data = request.data.get('call', {})
+        if request_data['escalation']:
+            email_data = {'sender': 'telesales@gmail.com',
+                          'recipient': request_data['caller_email'],
+                          'subject': 'Escalation Alert'}
+            send_email(request=request, data=email_data,)
         serializer = self.serializer_class(data=request_data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
