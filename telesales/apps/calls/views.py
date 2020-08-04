@@ -13,6 +13,7 @@ from .serializers import (CallSerializer, UpdateDispositionSerializer,)
 from .renderers import CallRenderer, CallsRenderer
 from .models import Call
 from ..utils.emailer import send_email
+from ..utils.messenger import sendsms
 
 # Create your views here.
 
@@ -29,6 +30,7 @@ class CreateCallView(CreateAPIView):
                           'recipient': request_data['caller_email'],
                           'subject': 'Escalation Alert'}
             send_email(request=request, data=email_data,)
+            # sendsms(request_data['caller_phone'], 'Hello test escalation')
         serializer = self.serializer_class(data=request_data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
