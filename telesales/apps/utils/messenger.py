@@ -1,18 +1,18 @@
-import os
-from twilio.rest import Client
+# import os
+# from twilio.rest import Client
 
-from googlevoice import Voice
-from googlevoice.util import input
+# from googlevoice import Voice
+# from googlevoice.util import input
 
 
-def sendsms(number, message):
-    user = os.environ['EMAIL_HOST_USER']
-    password = os.environ['EMAIL_HOST_USER_PASSWORD']
+# def sendsms(number, message):
+#     user = os.environ['EMAIL_HOST_USER']
+#     password = os.environ['EMAIL_HOST_USER_PASSWORD']
 
-    voice = Voice()
-    voice.login(user, password)
+#     voice = Voice()
+#     voice.login(user, password)
 
-    voice.send_sms(number, message)
+#     voice.send_sms(number, message)
 
 
 # def sendsms(sender, recipient):
